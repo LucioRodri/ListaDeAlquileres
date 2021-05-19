@@ -68,8 +68,9 @@ void cLista<T1, T2, T3>::operator+(T1* p)
 template <class T1, class T2, class T3>
 T1* cLista<T1, T2, T3>::Quitar(T2 clave)
 {
+	unsigned int i;
 	try {
-		unsigned int i = BuscarAtPos(clave);
+		i = BuscarAtPos(clave);
 	}
 	catch (exception* error)
 	{
@@ -91,7 +92,14 @@ T1* cLista<T1, T2, T3>::Quitar(T2 clave)
 template <class T1, class T2, class T3>
 T1* cLista<T1, T2, T3>::Quitar(T3 clave)
 {
-	unsigned int i = BuscarAtPos(clave);
+	unsigned int i;
+		try {
+		i = BuscarAtPos(clave);
+	}
+	catch (exception* error)
+	{
+		throw error;
+	}
 	if (i >= ca)throw new exception("\nIngrese una posicion valida!");
 	T1* aux = NULL;
 	try{
@@ -134,23 +142,33 @@ T1* cLista<T1, T2, T3>::QuitarPos(unsigned int pos) {
 template <class T1, class T2, class T3>
 void cLista<T1, T2, T3>::Eliminar(T2 clave)
 {
+	T1* aux;
 	try {
-		T1* aux = Quitar(clave);
+		aux = Quitar(clave);
 	}
-	catch(exception* error){
-}		throw error
+	catch (exception* error) {
+		throw error;
+	}
 	if (aux != NULL)
 		delete aux;
-	else throw new exception("No se pudo eliminar");
+	else 
+		throw new exception("No se pudo eliminar");
 }
 
 template <class T1, class T2, class T3>
 void cLista<T1, T2, T3>::Eliminar(T3 clave)
 {
-	T1* aux = Quitar(clave);
+	T1* aux;
+	try {
+		aux = Quitar(clave);
+	}
+	catch (exception* error) {
+		throw error;
+	}
 	if (aux != NULL)
 		delete aux;
-	else else throw new exception("No se pudo eliminar");
+	else 
+		throw new exception("No se pudo eliminar");
 }
 
 template <class T1, class T2, class T3>

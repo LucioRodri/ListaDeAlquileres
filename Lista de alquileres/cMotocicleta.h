@@ -6,17 +6,19 @@ class cMotocicleta :
 {
 private:
     const unsigned int cascos;
-    static const float precio_cascos;
-    static unsigned int precio_dia;
+    static const unsigned int precio_cascos = 750;
+    static const unsigned int precio_dia = 1500;
 
 public:
-    cMotocicleta(unsigned int cascos, float precio_cascos, unsigned int precio_dia, unsigned int capacidad_pasajeros, string color,  tm* fecha, unsigned int chasis, string patente, unsigned int poliza, unsigned int base, unsigned int dias);
+    cMotocicleta(unsigned int cascos, unsigned int precio_dia, unsigned int capacidad_pasajeros, string color,  tm* fecha, unsigned int chasis, string patente, unsigned int poliza, unsigned int base, unsigned int dias);
     cMotocicleta(cMotocicleta* copia);
     ~cMotocicleta();
     float Calcular_tarifa();
-    void PasosMantenimiento();
+    void pasos_mantenimiento();
     virtual unsigned int cant_elementos_seguridad();
+    string get_patente() { return numero_patente; }
     string to_string();
-    void imprimir();
+    void Imprimir();
 };
+
 

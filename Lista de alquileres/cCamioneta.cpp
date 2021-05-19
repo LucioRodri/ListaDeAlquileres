@@ -27,7 +27,7 @@ float cCamioneta::Calcular_tarifa()
 		return precio_dia * cant_dias + cant_silla_ninios * precio_sillas + precio_base;
 }
 
-void cCamioneta::PasosMantenimiento()
+void cCamioneta::pasos_mantenimiento()
 {
 	time_t now = time(0);
 	tm* time = localtime(&now);
@@ -49,4 +49,8 @@ string cCamioneta::to_string()
 unsigned int cCamioneta::cant_elementos_seguridad()
 {
 	return cant_silla_ninios + 7;//Asumo 5 cinturones de seguridad + 2 airbags
+}
+void cCamioneta::Imprimir()
+{
+	cout<<to_string()<<endl;
 }

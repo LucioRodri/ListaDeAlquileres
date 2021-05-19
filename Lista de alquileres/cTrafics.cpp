@@ -4,9 +4,7 @@ cTrafics::cTrafics(const unsigned int asientos, const unsigned int sillas, unsig
 {
 	tipo_vehiculo = "\nTrafic";
 }
-const unsigned int cTrafics::precio_asiento_rebatible = 10;
-unsigned int cTrafics::precio_dia = 15;
-const unsigned int precio_silla_ninios = 20;
+
 cTrafics::~cTrafics()
 {
 }

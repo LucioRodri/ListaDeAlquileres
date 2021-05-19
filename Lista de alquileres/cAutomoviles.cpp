@@ -5,8 +5,6 @@ cAutomoviles::cAutomoviles(unsigned int cant_sillas, unsigned int capacidad_pasa
 {
 	tipo_vehiculo = "\nAuto";
 }
-const unsigned int precio_dia= 1500;
-const unsigned int precio_sillas= 750;
 
 cAutomoviles::cAutomoviles(cAutomoviles* copia) :cant_sillas(copia->cant_sillas), cVehiculo(copia)
 {
@@ -19,7 +17,7 @@ float cAutomoviles::Calcular_tarifa()
 {
     return (cant_sillas * precio_sillas + precio_base + precio_dia*cant_dias);
 }
-void cAutomoviles::PasosMantenimiento()
+void cAutomoviles::pasos_mantenimiento()
 {
 	time_t now = time(0);
 	tm* time = localtime(&now);
@@ -38,7 +36,7 @@ string cAutomoviles::to_string()
 	return cVehiculo::to_string() + "\nSillas: " + std::to_string(cant_sillas) + "\nPrecio dia: " + std::to_string(precio_dia);
 }
 
-void cAutomoviles::imprimir()
+void cAutomoviles::Imprimir()
 {
 	cout << to_string() << endl;
 }

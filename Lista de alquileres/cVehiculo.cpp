@@ -28,7 +28,7 @@ cVehiculo::~cVehiculo()
 {
 }
 
-float cVehiculo::calcular_tarifa()
+float cVehiculo::Calcular_tarifa()
 {
 	return 0.0f;
 }
@@ -45,4 +45,9 @@ unsigned int cVehiculo::cant_elementos_seguridad()
 string cVehiculo::to_string()
 {
 	return "\nPasajeros: " + std::to_string(capacidad_pasajeros) + "\nColor: " + color + "\nUltimo service: " + ConverttmString(*fecha_ultimo_mantenimiento) + "\nChasis: " + std::to_string(numero_chasis) + "\nPatente: " + numero_patente + "\nPoliza: " + std::to_string(numero_poliza) + "\nPrecio base: " + std::to_string(precio_base) + "\nDias: " + std::to_string(cant_dias);
+}
+
+void cVehiculo::Imprimir()
+{
+	cout << to_string() << endl;
 }

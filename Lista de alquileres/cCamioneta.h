@@ -15,8 +15,10 @@ public:
     cCamioneta(cCamioneta* copia);
     ~cCamioneta();
     float Calcular_tarifa();
-    void PasosMantenimiento();
+    void pasos_mantenimiento();
     unsigned int cant_elementos_seguridad();
+    string get_patente() { return numero_patente; }
     string to_string();
+    void Imprimir();
 };
 

@@ -41,7 +41,11 @@
 }*/
 void cListaAlquileres::listar_por_tipo()
 {
-	Alquiler** aux;
+	Alquiler** aux=new Alquiler*[ca];
+	for (int i = 0; i < ca; i++)
+	{
+		aux[i] = NULL;
+	}
 	int cont = 0;
 	cMotocicleta* pMoto;
 	cTrafics* pTrafic;
@@ -77,7 +81,7 @@ void cListaAlquileres::listar_por_tipo()
 	for (int i = 0; i < ca - 1; i++)
 	{
 		pTrafic = dynamic_cast<cTrafics*>(lista[i]->vehiculo);
-		if (pCamioneta != NULL)
+		if (pTrafic != NULL)
 		{
 			aux[cont] = lista[i];
 			cont++;
