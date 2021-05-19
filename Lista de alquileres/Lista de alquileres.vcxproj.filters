@@ -33,7 +33,19 @@
     <ClInclude Include="Alquiler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cListaT.h">
+    <ClInclude Include="cLista.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cAutomoviles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Funciones.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cEmpresa.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cListaAlquileres.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -53,7 +65,22 @@
     <ClCompile Include="Alquiler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cListaT.cpp">
+    <ClCompile Include="cLista.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cAutomoviles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Funciones.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cEmpresa.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cListaAlquileres.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

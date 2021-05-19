@@ -140,20 +140,29 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Alquiler.h" />
+    <ClInclude Include="cAutomoviles.h" />
     <ClInclude Include="cCamioneta.h" />
+    <ClInclude Include="cEmpresa.h" />
     <ClInclude Include="Cliente.h" />
-    <ClInclude Include="cListaT.h" />
+    <ClInclude Include="cListaAlquileres.h" />
+    <ClInclude Include="cLista.h" />
     <ClInclude Include="cMotocicleta.h" />
     <ClInclude Include="cTrafics.h" />
     <ClInclude Include="cVehiculo.h" />
+    <ClInclude Include="Funciones.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Alquiler.cpp" />
+    <ClCompile Include="cAutomoviles.cpp" />
     <ClCompile Include="cCamioneta.cpp" />
-    <ClCompile Include="cListaT.cpp" />
+    <ClCompile Include="cEmpresa.cpp" />
+    <ClCompile Include="cListaAlquileres.cpp" />
+    <ClCompile Include="cLista.cpp" />
     <ClCompile Include="cMotocicleta.cpp" />
     <ClCompile Include="cTrafics.cpp" />
     <ClCompile Include="cVehiculo.cpp" />
+    <ClCompile Include="Funciones.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
