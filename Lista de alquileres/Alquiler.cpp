@@ -15,3 +15,10 @@ Alquiler::Alquiler(unsigned int cant_elementos_seguridad, tm* fecha_inicio, tm* 
 Alquiler::~Alquiler()
 {
 }
+
+string Alquiler::to_string()
+{
+	return "\nFecha de inicio de reserva: "+ ConverttmString(*fecha_inicio)+ "\nFecha de finalizacion de reserva: "+ 
+		ConverttmString(*fin_reserva)+ "\nCantidad de elementos de seguridad: "+ std::to_string(cant_elementos_seguridad)+ 
+		"\nTipo de vehiculo: "+ tipo_vehiculo+ cliente+ Vehiculo+ "\nMonto total: "+ std::to_string(monto_total);
+}

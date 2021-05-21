@@ -29,11 +29,9 @@ public:
 	unsigned int BuscarAtPos(T1* Clave);
 	string to_string();
 	void operator+(T1* p);
-	ostream& operator<<(ostream& out, cLista<T1>& M) 
-	{
-		out << M->to_string() << endl; //puede ser . o una -> despues de M
-		return out;
-	}
+
+	//friend ostream& operator<< <>(ostream& out, cLista& M);
+	
 	T1* operator[](unsigned int pos)
 	{
 		if (pos < ca)
@@ -50,6 +48,12 @@ public:
 	void Listar();
 
 };									
+
+template <class T1>
+ostream& operator<< (ostream& out, cLista<T1>& M) {
+	out << M.to_string() << endl;
+	return out;
+}
 
 template <class T1>					
 cLista<T1>::cLista(bool eliminar, unsigned int T)
@@ -204,6 +208,16 @@ unsigned int cLista<T1>::BuscarAtPos(T1* Clave)
 			return i;
 	}
 	throw new exception("\nNo se encontro el elemento!"); //lanzamos una excepcion si se llega al final del bucle y no se encuentra
+}
+template<class T1>
+inline string cLista<T1>::to_string()
+{
+	string Lista_string="";
+	for (int i = 0; i < ca; i++)
+	{
+		Lista_string = lista[i]->to_string();
+	}
+	return Lista_string;
 }
 template <class T1>
 void cLista<T1>::Listar()

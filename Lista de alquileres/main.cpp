@@ -198,7 +198,7 @@ int main()
 		delete error;
 		cout << err << endl;
 	}
-	cout <<  << endl;
+	cout << *listaAlquileres << endl;
 
 	return 0;
 }
