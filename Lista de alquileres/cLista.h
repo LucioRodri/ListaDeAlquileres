@@ -27,11 +27,11 @@ public:
 	void EliminarenPos(unsigned int);
 	T1* Buscar(T1* Clave);
 	unsigned int BuscarAtPos(T1* Clave);
-
+	string to_string();
 	void operator+(T1* p);
-	ostream& operator<<(ostream& out, const T1 &M) 
+	ostream& operator<<(ostream& out, cLista<T1>& M) 
 	{
-		out << M.to_string() << endl;
+		out << M->to_string() << endl; //puede ser . o una -> despues de M
 		return out;
 	}
 	T1* operator[](unsigned int pos)
