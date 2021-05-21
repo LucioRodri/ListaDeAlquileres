@@ -23,8 +23,8 @@ void cTrafics::pasos_mantenimiento()
 {
 	time_t now = time(0);
 	tm* time = localtime(&now);
-	fecha_ultimo_mantenimiento->tm_year = time->tm_year;
-	fecha_ultimo_mantenimiento->tm_mon = time->tm_mon;
+	fecha_ultimo_mantenimiento->tm_year = time->tm_year + 1900;
+	fecha_ultimo_mantenimiento->tm_mon = time->tm_mon + 1;
 	fecha_ultimo_mantenimiento->tm_mday = time->tm_mday;
 	cout << "\nPrimero, verificar que los airbags esten recargados\nSegundo, cambiar los frenos\nTercero, verificar el funcionamiento de los cinturones de seguridad\nCuarto, cambiar aceite\nQuinto, revisar el quilometraje\nSexto, chequear suciedad en la parte trasera" << endl;
 }

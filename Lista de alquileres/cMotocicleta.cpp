@@ -25,8 +25,8 @@ void cMotocicleta::pasos_mantenimiento()
 {
 	time_t now = time(0);
 	tm* time = localtime(&now);
-	fecha_ultimo_mantenimiento->tm_year = time->tm_year;
-	fecha_ultimo_mantenimiento->tm_mon = time->tm_mon;
+	fecha_ultimo_mantenimiento->tm_year = time->tm_year + 1900;
+	fecha_ultimo_mantenimiento->tm_mon = time->tm_mon + 1;
 	fecha_ultimo_mantenimiento->tm_mday = time->tm_mday;
 	cout << "\nPrimero, verificar que el airbag este recargado\nSegundo, cambiar los frenos\nTercero, cambiar aceite\nCuarto, revisar el quilometraje\nCuarto, revisar cascos" << endl;
 }

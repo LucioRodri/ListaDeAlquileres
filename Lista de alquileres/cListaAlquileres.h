@@ -6,8 +6,10 @@
 #include"cCamioneta.h"
 #include"cMotocicleta.h"
 #include"cTrafics.h"
+
+class cEmpresa;
 class cListaAlquileres :
-    public cLista<Alquiler,cVehiculo,string>
+    public cLista<Alquiler>
 {
 public:
     void listar_por_tipo();

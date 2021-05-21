@@ -5,16 +5,19 @@
 #include "Alquiler.h"
 #include <string>
 #include <iostream>
+
 using namespace std;
 int main()
 {
 	time_t now = time(0);
 	tm* time = localtime(&now);
+	time->tm_year += 1900;
+	time->tm_mon += 1;
 	int total;
 	//empezamos probando las funciones de cAutomoviles
 	cAutomoviles* pAuto= new cAutomoviles(3, 4, "violeta", time, 123, "abc-123", 456, 20, 4);
 	cVehiculo* pVehiculo=pAuto;
-	pAuto->pasos_mantenimiento();
+	pAuto->pasos_mantenimiento(); //imprime mes y anio mal
 	total = pAuto->Calcular_tarifa();
 	cout<<total<<endl;
 	total = pAuto->cant_elementos_seguridad();
@@ -46,6 +49,40 @@ int main()
 	total = pTrafics->cant_elementos_seguridad();
 	cout << total << endl;
 	pTrafics->Imprimir();
+
+	//creo 3 alquileres para probar en la lista de alquileres
+	unsigned int pos;
+	Cliente* cliente1 = new Cliente("Pedro", "2312312");
+	cListaAlquileres* listaAlquileres = new cListaAlquileres();
+	Alquiler* ptr_alquiler = new Alquiler(3, time, time, pCamioneta, cliente1);
+	try {
+		listaAlquileres->Insertar(new Alquiler(6, time, time, pAuto, cliente1));
+		listaAlquileres->Insertar(ptr_alquiler);
+		listaAlquileres->Insertar(new Alquiler(2, time, time, pMoto, cliente1));
+	}
+	catch(exception* error){
+		string err = error->what();
+		delete error;
+		cout << error << endl;
+	}
+	try {
+		pos = listaAlquileres->BuscarAtPos(ptr_alquiler);
+	}
+	catch (exception* error)
+	{
+		string err = error->what();
+		delete error;
+		cout << error << endl;
+	}
+	try {
+		listaAlquileres->Eliminar(ptr_alquiler);
+	}
+	catch (exception* error) {
+		string err = error->what();
+		delete error;
+		cout << error << endl;
+	}
+	listaAlquileres->listar_por_tipo();
 
 	return 0;
 }

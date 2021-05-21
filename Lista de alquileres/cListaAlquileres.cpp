@@ -47,11 +47,11 @@ void cListaAlquileres::listar_por_tipo()
 		aux[i] = NULL;
 	}
 	int cont = 0;
-	cMotocicleta* pMoto;
-	cTrafics* pTrafic;
-	cAutomoviles* pAuto;
-	cCamioneta* pCamioneta;
-	for (int i = 0; i < ca - 1; i++)
+	cMotocicleta* pMoto = NULL;
+	cTrafics* pTrafic = NULL;
+	cAutomoviles* pAuto = NULL;
+	cCamioneta* pCamioneta = NULL;
+	for (int i = 0; i < ca; i++)
 	{
 		pAuto = dynamic_cast<cAutomoviles*>(lista[i]->vehiculo);
 		if (pAuto!=NULL)
@@ -60,7 +60,7 @@ void cListaAlquileres::listar_por_tipo()
 			cont++;
 		}
 	}
-	for (int i = 0; i < ca - 1; i++)
+	for (int i = 0; i < ca; i++)
 	{
 		pCamioneta = dynamic_cast<cCamioneta*>(lista[i]->vehiculo);
 		if (pCamioneta != NULL)
@@ -69,7 +69,7 @@ void cListaAlquileres::listar_por_tipo()
 			cont++;
 		}
 	}
-	for (int i = 0; i < ca - 1; i++)
+	for (int i = 0; i < ca; i++)
 	{
 		pMoto = dynamic_cast<cMotocicleta*>(lista[i]->vehiculo);
 		if (pMoto!=NULL)
@@ -78,7 +78,7 @@ void cListaAlquileres::listar_por_tipo()
 			cont++;
 		}
 	}
-	for (int i = 0; i < ca - 1; i++)
+	for (int i = 0; i < ca; i++)
 	{
 		pTrafic = dynamic_cast<cTrafics*>(lista[i]->vehiculo);
 		if (pTrafic != NULL)

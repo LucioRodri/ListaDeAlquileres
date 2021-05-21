@@ -1,6 +1,6 @@
 #include "Alquiler.h"
 
-Alquiler::Alquiler(unsigned int cant_elementos_seguridad, tm fecha_inicio, tm fin_reserva, cVehiculo* vehiculo, Cliente* cliente)
+Alquiler::Alquiler(unsigned int cant_elementos_seguridad, tm* fecha_inicio, tm* fin_reserva, cVehiculo* vehiculo, Cliente* cliente)
 {
 	this->cant_elementos_seguridad=cant_elementos_seguridad;
 	this->fecha_inicio = fecha_inicio;

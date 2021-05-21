@@ -7,12 +7,12 @@ void cEmpresa::AdquirirVehiculo(cVehiculo* nuevo)
 
 void cEmpresa::RetirarVehiculo(cVehiculo* retirado)
 {
-	ListaVehiculos->Quitar(retirado->get_patente());
+	ListaVehiculos->Quitar(retirado);
 }
 
 void cEmpresa::RealizarMantenimiento(cVehiculo* vehiculo)
 {
 	int pos;
-	pos = ListaVehiculos->BuscarAtPos(vehiculo->get_patente());
+	pos = ListaVehiculos->BuscarAtPos(vehiculo);
 	ListaVehiculos->lista[pos]->pasos_mantenimiento();
 }
