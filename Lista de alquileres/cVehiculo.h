@@ -28,6 +28,6 @@ public:
 	virtual void Imprimir();
 	string get_tipo() { return tipo_vehiculo; };
 	virtual string get_patente() { return numero_patente; };
-	//ostream& operator<<(ostream& out, const cVehiculo& M) { out << M.to_string() << endl; return out; }
+
 };
 

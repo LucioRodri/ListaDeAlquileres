@@ -30,9 +30,12 @@ void cTrafics::pasos_mantenimiento()
 }
 string cTrafics::to_string()
 {
-	return "\nCantidad de asientos: "+ std::to_string(cant_asientos)+ "\nPrecio x dia: "+ std::to_string(precio_dia)+ "\nCantidad de sillas para ninos: "+
-	std::to_string(cant_sillas)+ "\nPrecio x silla para nino: "+ std::to_string(precio_silla_ninios)+ "\nPrecio x asiento rebatible: "+ 
-	std::to_string(precio_asiento_rebatible)+ cVehiculo::to_string();
+	return "\nPasajeros: " + std::to_string(capacidad_pasajeros) + "\nColor: " + color + "\nUltimo service: " +
+	ConverttmString(*fecha_ultimo_mantenimiento) + "\nChasis: " + std::to_string(numero_chasis) + "\nPatente: " + 
+	numero_patente + "\nPoliza: " + std::to_string(numero_poliza) + "\nPrecio base: " + std::to_string(precio_base) +
+	"\nDias: " + std::to_string(cant_dias) + "\nCantidad de asientos: "+ std::to_string(cant_asientos)+ "\nPrecio x dia: "+ 
+	std::to_string(precio_dia)+"\nCantidad de sillas para ninos: "+ std::to_string(cant_sillas)+ "\nPrecio x silla para nino: "+ 
+	std::to_string(precio_silla_ninios)+ "\nPrecio x asiento rebatible: "+ std::to_string(precio_asiento_rebatible);
 }
 unsigned int cTrafics::cant_elementos_seguridad()
 {

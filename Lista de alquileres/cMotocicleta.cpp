@@ -36,8 +36,17 @@ unsigned int cMotocicleta::cant_elementos_seguridad()
 }
 string cMotocicleta::to_string()
 {
-	return "\nPrecio x dia: " + std::to_string(precio_dia) + "\ncantidad de cascos: " + std::to_string(cascos) + cVehiculo::to_string();
-}
+	return "\nPasajeros: " + std::to_string(capacidad_pasajeros) + "\nColor: " + color + 
+		"\nUltimo service: " + ConverttmString(*fecha_ultimo_mantenimiento) +
+		"\nChasis: " + std::to_string(numero_chasis) + "\nPatente: " + numero_patente + 
+		"\nPoliza: " + std::to_string(numero_poliza) + "\nPrecio base: " + std::to_string(precio_base) + 
+		"\nDias: " + std::to_string(cant_dias) + "\nPrecio x dia: " + std::to_string(precio_dia) + 
+		"\ncantidad de cascos: " + std::to_string(cascos) + "\nPasajeros: " + std::to_string(capacidad_pasajeros) + "\nColor: " + color + 
+		"\nUltimo service: " + ConverttmString(*fecha_ultimo_mantenimiento) + "\nChasis: " + std::to_string(numero_chasis) + "\nPatente: " +
+		numero_patente + "\nPoliza: " + std::to_string(numero_poliza) + "\nPrecio base: " + std::to_string(precio_base) + "\nDias: " +
+		std::to_string(cant_dias);
+};
+
 void cMotocicleta::Imprimir()
 {
 	cout << to_string() << endl;

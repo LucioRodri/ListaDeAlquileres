@@ -33,7 +33,10 @@ unsigned int cAutomoviles::cant_elementos_seguridad()
 
 string cAutomoviles::to_string()
 {
-	return cVehiculo::to_string() + "\nSillas: " + std::to_string(cant_sillas) + "\nPrecio dia: " + std::to_string(precio_dia);
+	return "\nPasajeros: " + std::to_string(capacidad_pasajeros) + "\nColor: " + color + "\nUltimo service: " + 
+	ConverttmString(*fecha_ultimo_mantenimiento) + "\nChasis: " + std::to_string(numero_chasis) + "\nPatente: " +
+	numero_patente + "\nPoliza: " + std::to_string(numero_poliza) + "\nPrecio base: " + std::to_string(precio_base) + "\nDias: " + 
+	std::to_string(cant_dias) + "\nSillas: " + std::to_string(cant_sillas) + "\nPrecio dia: " + std::to_string(precio_dia);
 }
 
 void cAutomoviles::Imprimir()
