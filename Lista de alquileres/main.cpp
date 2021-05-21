@@ -52,25 +52,40 @@ int main()
 
 	//creo 3 alquileres para probar en la lista de alquileres
 	unsigned int pos;
+	string err;
 	Cliente* cliente1 = new Cliente("Pedro", "2312312");
 	cListaAlquileres* listaAlquileres = new cListaAlquileres();
 	Alquiler* ptr_alquiler = new Alquiler(3, time, time, pCamioneta, cliente1);
 	try {
 		listaAlquileres->Insertar(new Alquiler(6, time, time, pAuto, cliente1));
+	}
+	catch(exception* error){
+		err = error->what();
+		delete error;
+		cout << err << endl;
+	}
+	try {
 		listaAlquileres->Insertar(ptr_alquiler);
+	}
+	catch(exception* error){
+		err = error->what();
+		delete error;
+		cout << error << endl;
+	}
+	try {
 		listaAlquileres->Insertar(new Alquiler(2, time, time, pMoto, cliente1));
 	}
 	catch(exception* error){
-		string err = error->what();
+		err = error->what();
 		delete error;
-		cout << error << endl;
+		cout << err << endl;
 	}
 	try {
 		pos = listaAlquileres->BuscarAtPos(ptr_alquiler);
 	}
 	catch (exception* error)
 	{
-		string err = error->what();
+		err = error->what();
 		delete error;
 		cout << error << endl;
 	}
@@ -78,11 +93,26 @@ int main()
 		listaAlquileres->Eliminar(ptr_alquiler);
 	}
 	catch (exception* error) {
-		string err = error->what();
+		err = error->what();
 		delete error;
-		cout << error << endl;
+		cout << err << endl;
 	}
 	listaAlquileres->listar_por_tipo();
 
+	//Probamos que maneje bien las excepciones de lista
+	//redujimos el tamanio maximo de la lista de 150 a 5 para testear
+	try {
+		listaAlquileres->Insertar(new Alquiler(3, time, time, pCamioneta, cliente1));
+		listaAlquileres->Insertar(new Alquiler(3, time, time, pCamioneta, cliente1));//tira exepcion al encontrar el mismo
+		listaAlquileres->Insertar(new Alquiler(3, time, time, pAuto, cliente1));
+		listaAlquileres->Insertar(new Alquiler(3, time, time, pTrafics, cliente1));
+		pTrafics = new cTrafics(3, 8, 10, "purpura", time, 252, "tgf-456", 9821, 1000, 5);
+		listaAlquileres->Insertar(new Alquiler(3, time, time, pTrafics , cliente1));//tira excepcion al agregar uno mas de la capacidad maxima de la lista
+	}
+	catch (exception* error) {
+		err = error->what();
+		delete error;
+		cout << err << endl;
+	}
 	return 0;
 }

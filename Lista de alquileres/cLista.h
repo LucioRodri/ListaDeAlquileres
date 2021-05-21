@@ -4,7 +4,7 @@
 
 using namespace std;	//ATENCION: DEBEN AGREGAR LAS EXCEPCIONES CORRESPONDIENTES PARA EVITAR ERRORES CUANDO USEN LA LISTA
 
-#define TMAX 150
+#define TMAX 5
 template <class T1> //Indico que voy a hacer uso de Template y la clase T1 sera la generica
 class cLista
 {
@@ -44,10 +44,10 @@ public:
 
 	void Listar();
 
-};									//Los metodos deben estar definidos en el .h, para evitar otros que arreglos que habria que hacer
+};									
 
-template <class T1>					//Es importante, antes de cada metodo, colocar esta sentencia
-cLista<T1>::cLista(unsigned int T)	//Y tambien es importante colocar antes del operador de ambito la clase generica <T1>
+template <class T1>					
+cLista<T1>::cLista(unsigned int T)	
 {
 	t = T;
 	ca = 0;
@@ -82,11 +82,24 @@ cLista<T1>::~cLista(void)
 template <class T1>
 void cLista<T1>::Insertar(T1* P)
 {
-
-	if (ca < t)
+	if (P == NULL)//Revisamos que no sea NULL
+		throw new exception("\nIngrese un elemento valido!");
+	T1* aux;
+	try {
+		aux = Buscar(P);
+	}
+	catch(exception* error)
+	{
+		throw error;
+	}
+	if (aux != NULL)
+		throw new exception("\n¡El elemento esta repetido!"); //revisamos que el elemento no se encuentre repetido
+	if (ca < t)//Revisamos que no se supere la capacidad maxima
+	{	
 		lista[ca++] = P;
-
-
+	}
+	else
+		throw new exception("\nSe ha superado el tamanio maximo de la lista!");
 }
 template <class T1>
 void cLista<T1>::operator+(T1* P)
@@ -101,9 +114,18 @@ void cLista<T1>::operator+(T1* P)
 template <class T1>
 T1* cLista<T1>::Quitar(T1* clave)
 {
-	unsigned int i = BuscarAtPos(clave);
+	if (clave == NULL)//Revisamos que no pase un puntero NULL
+		throw new exception("\nElemento a quitar no valido, es null!");
 
-	if (i >= ca)return NULL;
+	unsigned int i;
+	try {//Revisamos que el elemento se encuentre en la lista
+		i = BuscarAtPos(clave);
+	}
+	catch(exception* error)
+	{
+		throw error;
+	}
+	//if (i >= ca)throw new exception("\nLa posicion no es valida!");//Revisamos que el elemento no supere la capacidad actual
 
 	T1* aux = lista[i];
 
@@ -122,18 +144,20 @@ T1* cLista<T1>::Quitar(T1* clave)
 template <class T1>
 void cLista<T1>::Eliminar(T1* clave)
 {
-
-	T1* aux = Quitar(clave);
-
+	try{
+		T1* aux = Quitar(clave);
+	}
+	catch(exception* error)
+	{
+		throw error;
+	}
 	if (aux != NULL)
 		delete aux;
-
-
 }
 template <class T1>
 void cLista<T1>::EliminarenPos(unsigned int pos)
 {
-	if (pos >= ca)return;
+	if (pos >= ca)throw new exception("\nLa posicion no es valida!");
 	delete lista[pos];
 	ca--;
 	for (int j = pos; j < ca; j++)
@@ -148,35 +172,38 @@ void cLista<T1>::EliminarenPos(unsigned int pos)
 template <class T1>
 T1* cLista<T1>::Buscar(T1* Clave)
 {
-	unsigned int pos = BuscarAtPos(Clave);
-
+	unsigned int pos
+	try{
+		pos = BuscarAtPos(Clave);
+	}
+	catch(exception* error)
+	{
+		throw error; //relanzamos la posible excepcion del metodo BuscarAtPos
+	}
 	if (pos < ca)
 		return lista[pos];
-	return NULL;
+	throw new exception("\nNo se encontro");
 }
 template <class T1>
 unsigned int cLista<T1>::BuscarAtPos(T1* Clave)
 {
-
+	if (Clave == NULL)
+		throw new exception("\nIngrese un elemento valido, diferente a NULL"); //revisamos que pueda buscar algo valido
 	for (int i = 0; i < ca; i++)
 	{
 		if (lista[i] == Clave)
 			return i;
 	}
 
-	return t;
+	throw new exception("\nNo se encontro"); //si no se encuentra el elemento, lanzamos una excepcion
 }
 
 template <class T1>
 void cLista<T1>::Listar()
 {
-
 	for (int i = 0; i < ca; i++)
 	{
 		cout << lista[i];
 		cout << "----------------------------------------------" << endl;
 	}
-
-
-
 }
