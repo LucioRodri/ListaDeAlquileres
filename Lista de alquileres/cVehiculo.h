@@ -26,8 +26,8 @@ public:
 	virtual unsigned int cant_elementos_seguridad();
 	virtual string to_string();
 	virtual void Imprimir();
-	string get_tipo() { return tipo_vehiculo; };
-	virtual string get_patente() { return numero_patente; };
+	virtual string get_tipo() { return ""; };
+	virtual string get_patente() { return ""; };
 
 };
 

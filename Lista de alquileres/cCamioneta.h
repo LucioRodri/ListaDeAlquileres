@@ -17,6 +17,7 @@ public:
     float Calcular_tarifa();
     void pasos_mantenimiento();
     unsigned int cant_elementos_seguridad();
+    string get_tipo() { return tipo_vehiculo; };
     string get_patente() { return numero_patente; }
     string to_string();
     void Imprimir();

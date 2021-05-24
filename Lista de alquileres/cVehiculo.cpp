@@ -49,5 +49,4 @@ string cVehiculo::to_string()
 
 void cVehiculo::Imprimir()
 {
-	cout << to_string() << endl;
 }

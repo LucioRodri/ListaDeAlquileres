@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-using namespace std;	//ATENCION: DEBEN AGREGAR LAS EXCEPCIONES CORRESPONDIENTES PARA EVITAR ERRORES CUANDO USEN LA LISTA
+using namespace std;
 
 #define TMAX 5
 template <class T1> //Indico que voy a hacer uso de Template y la clase T1 sera la generica
@@ -39,10 +39,10 @@ public:
 		return NULL;
 	}
 
-	T1* operator[](string clave)
-	{
-		return Buscar(clave);
-	}
+	//T1* operator[](string clave)
+	//{
+	//	return Buscar(clave);
+	//}
 
 
 	void Listar();
@@ -67,21 +67,21 @@ cLista<T1>::cLista(bool eliminar, unsigned int T)
 	{
 		lista[i] = NULL;
 	}
-
-
 }
 
 template <class T1>
 cLista<T1>::~cLista(void)
 {
 	if (lista != NULL) {
-
-		for (int i = 0; i < ca; i++)
+		if (eliminar)
 		{
-			if (lista[i] != NULL && eliminar==true)
-				delete lista[i];
+			for (int i = 0; i < ca; i++)
+			{
+				if (lista[i] != NULL)
+					delete lista[i];
+			}
 		}
-		delete[]lista;
+		delete[] lista;
 
 	}
 

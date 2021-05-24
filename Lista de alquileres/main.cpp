@@ -18,7 +18,7 @@ int main()
 	cLista<cVehiculo>* ListaVehiculo = new cLista<cVehiculo>(false);
 	cLista<Cliente>* ListaCliente = new cLista<Cliente>();
 	//empezamos probando las funciones de cAutomoviles
-	cAutomoviles* pAuto= new cAutomoviles(3, 4, "violeta", time, 123, "abc-123", 456, 20, 4);
+	cAutomoviles* pAuto = new cAutomoviles(3, 4, "violeta", time, 123, "abc-123", 456, 20, 4);
 	try {
 		ListaCliente->Insertar(new Cliente("Pedro Picapiedra", "12345678"));
 	}
@@ -35,12 +35,12 @@ int main()
 		delete error;
 		cout << err << endl;
 	}
-	cVehiculo* pVehiculo=pAuto;
+	cVehiculo* pVehiculo = pAuto;
 	pAuto->pasos_mantenimiento(); //imprime mes y anio mal
 	total = pAuto->Calcular_tarifa();
-	cout<<total<<endl;
+	cout << total << endl;
 	total = pAuto->cant_elementos_seguridad();
-	cout<<total<<endl;
+	cout << total << endl;
 	pVehiculo->Imprimir();
 
 	//funciones de motocicleta
@@ -109,7 +109,7 @@ int main()
 	try {
 		listaAlquileres->Insertar(ptr_alquiler);
 	}
-	catch(exception* error){
+	catch (exception* error) {
 		err = error->what();
 		delete error;
 		cout << err << endl;
@@ -118,7 +118,7 @@ int main()
 	try {
 		listaAlquileres->Insertar(ptr_alquiler);
 	}
-	catch(exception* error){
+	catch (exception* error) {
 		err = error->what();
 		delete error;
 		cout << error << endl;
@@ -127,7 +127,7 @@ int main()
 	try {
 		listaAlquileres->Insertar(ptr_alquiler);
 	}
-	catch(exception* error){
+	catch (exception* error) {
 		err = error->what();
 		delete error;
 		cout << err << endl;
@@ -174,7 +174,7 @@ int main()
 	}
 	ptr_alquiler = new Alquiler(3, time, time, pAuto, cliente1);
 	try {
-		*listaAlquileres+ptr_alquiler;//no deberian tirar excepcion
+		*listaAlquileres + ptr_alquiler;//no deberian tirar excepcion
 	}
 	catch (exception* error) {
 		err = error->what();
@@ -183,14 +183,14 @@ int main()
 	}
 	ptr_alquiler = new Alquiler(3, time, time, pTrafics, cliente1);
 	try {
-		*listaAlquileres+ptr_alquiler;
+		*listaAlquileres + ptr_alquiler;
 	}
 	catch (exception* error) {
 		err = error->what();
 		delete error;
 		cout << err << endl;
 	}
-	pTrafics = new cTrafics(3, 8, 10, "purpura", time, 252, "tgf-456", 9821, 1000, 5);
+	pTrafics = new cTrafics(3, 8, 10, "purpura", time, 252, "tgf-456", 9821, 1000, 5);//revisar
 	ptr_alquiler = new Alquiler(3, time, time, pTrafics, cliente1);
 	try{
 		*listaAlquileres+ptr_alquiler;//tira excepcion al agregar uno mas de la capacidad maxima de la lista
@@ -225,5 +225,6 @@ int main()
 	cout << *listaAlquileres << endl;
 	cout << *ListaCliente << endl;
 	cout << *ListaVehiculo << endl;
+	//delete Empresa;
 	return 0;
 }
