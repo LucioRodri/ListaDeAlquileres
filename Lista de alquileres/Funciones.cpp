@@ -44,4 +44,4 @@ string ConverttmString(tm Fecha) {
 	Fecha_str += "/";
 	Fecha_str += to_string(Fecha.tm_year);
 	return Fecha_str;
-}
+}//Aca se produce un punto de interrupcion

@@ -10,7 +10,7 @@ cVehiculo::cVehiculo(unsigned int capacidad, string color, tm* fecha, unsigned i
 	this->numero_poliza = poliza;
 	this->precio_base = base;
 	this->cant_dias = dias;
-}
+}//Aca se produce un punto de interrupcion
 
 cVehiculo::cVehiculo(cVehiculo* copia)
 {

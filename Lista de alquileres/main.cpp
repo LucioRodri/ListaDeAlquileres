@@ -154,6 +154,13 @@ int main()
 	ptr_alquiler = new Alquiler(3, time, time, pCamioneta, cliente1);
 	try {
 		listaAlquileres->operator+(ptr_alquiler);
+	}
+	catch (exception* error) {
+		err = error->what();
+		delete error;
+		cout << err << endl;
+	}
+	try {
 		listaAlquileres->operator+(ptr_alquiler);//tira exepcion al encontrar el mismo
 	}
 	catch (exception* error) {
@@ -163,6 +170,13 @@ int main()
 	}
 	try {
 		listaAlquileres->operator+(new Alquiler(3, time, time, pAuto, cliente1));//no deberian tirar excepcion
+	}
+	catch (exception* error) {
+		err = error->what();
+		delete error;
+		cout << err << endl;
+	}
+	try {
 		listaAlquileres->operator+(new Alquiler(3, time, time, pTrafics, cliente1));
 	}
 	catch (exception* error) {
@@ -198,7 +212,9 @@ int main()
 		delete error;
 		cout << err << endl;
 	}
+	//cout << listaAlquileres->to_string() << endl;
 	cout << *listaAlquileres << endl;
-
+	cout << *ListaCliente << endl;
+	cout << *ListaVehiculo << endl;
 	return 0;
 }

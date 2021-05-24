@@ -215,7 +215,7 @@ inline string cLista<T1>::to_string()
 	string Lista_string="";
 	for (int i = 0; i < ca; i++)
 	{
-		Lista_string = lista[i]->to_string();
+		Lista_string = Lista_string + lista[i]->to_string()+"\n--------------------------------------------------------";
 	}
 	return Lista_string;
 }
