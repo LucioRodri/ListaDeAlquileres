@@ -22,5 +22,6 @@ public:
 	Alquiler(unsigned int cant_elementos_seguridad, tm* fecha_inicio, tm* fin_reserva, cVehiculo* vehiculo, Cliente* cliente);
 	~Alquiler();
 	string to_string();
+	void Imprimir();
 };
 

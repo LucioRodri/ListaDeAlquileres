@@ -22,3 +22,8 @@ string Alquiler::to_string()
 		ConverttmString(*fin_reserva)+ "\nCantidad de elementos de seguridad: "+ std::to_string(cant_elementos_seguridad)+ 
 		"\nTipo de vehiculo: "+ tipo_vehiculo + cliente+ Vehiculo+ "\nMonto total: "+ std::to_string(monto_total);
 }
+
+void Alquiler::Imprimir()
+{
+	cout << to_string() << endl;
+}
