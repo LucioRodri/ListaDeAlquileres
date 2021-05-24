@@ -105,15 +105,16 @@ int main()
 		cout << err << endl;
 	}
 	cListaAlquileres* listaAlquileres = new cListaAlquileres();
-	Alquiler* ptr_alquiler = new Alquiler(3, time, time, pCamioneta, cliente1);
+	Alquiler* ptr_alquiler = new Alquiler(3, time, time, pAuto, cliente1);
 	try {
-		listaAlquileres->Insertar(new Alquiler(6, time, time, pAuto, cliente1));
+		listaAlquileres->Insertar(ptr_alquiler);
 	}
 	catch(exception* error){
 		err = error->what();
 		delete error;
 		cout << err << endl;
 	}
+	ptr_alquiler = new Alquiler(3, time, time, pCamioneta, cliente1);
 	try {
 		listaAlquileres->Insertar(ptr_alquiler);
 	}
@@ -122,8 +123,9 @@ int main()
 		delete error;
 		cout << error << endl;
 	}
+	ptr_alquiler = new Alquiler(2, time, time, pMoto, cliente1);
 	try {
-		listaAlquileres->Insertar(new Alquiler(2, time, time, pMoto, cliente1));
+		listaAlquileres->Insertar(ptr_alquiler);
 	}
 	catch(exception* error){
 		err = error->what();
@@ -153,7 +155,8 @@ int main()
 	//redujimos el tamanio maximo de la lista de 150 a 5 para testear
 	ptr_alquiler = new Alquiler(3, time, time, pCamioneta, cliente1);
 	try {
-		listaAlquileres->operator+(ptr_alquiler);
+		*listaAlquileres + ptr_alquiler;
+		//listaAlquileres->operator+(ptr_alquiler);
 	}
 	catch (exception* error) {
 		err = error->what();
@@ -161,23 +164,26 @@ int main()
 		cout << err << endl;
 	}
 	try {
-		listaAlquileres->operator+(ptr_alquiler);//tira exepcion al encontrar el mismo
+		*listaAlquileres + ptr_alquiler;
+		//listaAlquileres->operator+(ptr_alquiler);//tira exepcion al encontrar el mismo
 	}
 	catch (exception* error) {
 		err = error->what();
 		delete error;
 		cout << err << endl;
 	}
+	ptr_alquiler = new Alquiler(3, time, time, pAuto, cliente1);
 	try {
-		listaAlquileres->operator+(new Alquiler(3, time, time, pAuto, cliente1));//no deberian tirar excepcion
+		*listaAlquileres+ptr_alquiler;//no deberian tirar excepcion
 	}
 	catch (exception* error) {
 		err = error->what();
 		delete error;
 		cout << err << endl;
 	}
+	ptr_alquiler = new Alquiler(3, time, time, pTrafics, cliente1);
 	try {
-		listaAlquileres->operator+(new Alquiler(3, time, time, pTrafics, cliente1));
+		*listaAlquileres+ptr_alquiler;
 	}
 	catch (exception* error) {
 		err = error->what();
@@ -185,16 +191,19 @@ int main()
 		cout << err << endl;
 	}
 	pTrafics = new cTrafics(3, 8, 10, "purpura", time, 252, "tgf-456", 9821, 1000, 5);
+	ptr_alquiler = new Alquiler(3, time, time, pTrafics, cliente1);
 	try{
-		listaAlquileres->operator+(new Alquiler(3, time, time, pTrafics, cliente1));//tira excepcion al agregar uno mas de la capacidad maxima de la lista
+		*listaAlquileres+ptr_alquiler;//tira excepcion al agregar uno mas de la capacidad maxima de la lista
 	}
 	catch (exception* error) {
 		err = error->what();
 		delete error;
 		cout << err << endl;
 	}
+	delete ptr_alquiler;
+	ptr_alquiler = new Alquiler(3, time, time, pTrafics, cliente1);
 	try {
-		listaAlquileres->Eliminar(new Alquiler(3, time, time, pTrafics, cliente1));//tira exepcion al encontrar el mismo
+		listaAlquileres->Eliminar(ptr_alquiler);//tira exepcion al encontrar el mismo
 	}
 	catch (exception* error) {
 		err = error->what();
