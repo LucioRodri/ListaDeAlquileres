@@ -15,7 +15,7 @@ public:
     ~cMotocicleta();
     float Calcular_tarifa();
     void pasos_mantenimiento();
-    virtual unsigned int cant_elementos_seguridad();
+    unsigned int cant_elementos_seguridad();
     string get_patente() { return numero_patente; }
     string to_string();
     void Imprimir();

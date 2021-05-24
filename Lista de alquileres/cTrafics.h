@@ -13,9 +13,9 @@ public:
     cTrafics(const unsigned int asientos, const unsigned int sillas, unsigned int capacidad, string color, tm* fecha, unsigned int chasis, string patente, unsigned int poliza, unsigned int base, unsigned int dias);
     cTrafics(cTrafics* copia);
     ~cTrafics();
-    virtual float calcular_tarifa();
-    virtual void pasos_mantenimiento();
-    virtual unsigned int cant_elementos_seguridad();
+    float calcular_tarifa();
+    void pasos_mantenimiento();
+    unsigned int cant_elementos_seguridad();
     string get_patente() { return numero_patente; }
     string to_string();
     void Imprimir();
